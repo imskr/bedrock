@@ -1,0 +1,192 @@
+{# This Source Code Form is subject to the terms of the Mozilla Public
+ # License, v. 2.0. If a copy of the MPL was not distributed with this
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/. #}
+
+{% extends "firefox/base/base-protocol.html" %}
+{% from "macros-protocol.html" import call_out, call_out_compact, hero, feature_card with context %}
+
+{# Bug 1438302 Avoid duplicate content for en-CA and en-GB pages. #}
+{% if LANG == 'en-CA' %}
+  {% set title_suffix = 'Firefox (CA)' %}
+{% elif LANG == 'en-GB' %}
+  {% set title_suffix = 'Firefox (UK)' %}
+{% else %}
+  {% set title_suffix = 'Firefox' %}
+{% endif %}
+{% block page_title %}TKTK{% endblock %}
+{% block page_desc %}TKTK{% endblock %}
+
+{% block page_css %}
+  {{ css_bundle('firefox-master') }}
+{% endblock %}
+
+{% block body_id %}firefox-master{% endblock %}
+
+{% set referrals = '?utm_source=www.mozilla.org&amp;utm_medium=referral&amp;utm_campaign=firefox-home' %}
+
+{% if not is_translation %}
+  {% set page_title = _('The browser is just the beginning') %}
+  {% set family_title = _('Meet our family of products') %}
+  {% set browsers_trackers = _('Get 2,000+ trackers off your trail — including Facebook') %}
+  {% set monitor_title = _('Know when hackers strike — and stay a step ahead') %}
+  {% set monitor_cta = _('Start getting breach reports') %}
+  {% set lockwise_title = _('Keep your passwords safe on every device') %}
+  {% set promise_title = _('Get the <strong>respect</strong> you deserve') %}
+  {% set promise_desc = _('Every single Firefox product honors our Personal Data Promise: <strong>Take less. Keep it safe. No secrets.</strong>')|safe %}
+  {% set send_title = _('Share large files without prying eyes') %}
+  {% set send_cta  = _('Start sending files safely') %}
+  {% set pocket_title = _('Trade clickbait for quality content') %}
+  {% set pocket_cta = _('Learn more about Pocket') %}
+  {% set footer_title = _('One login. All your devices. A family of products that respect your <strong>privacy</strong>.') %}
+  {% set join_firefox = _('Join Firefox') %}
+  {% set join_learn_more = _('Learn more about joining Firefox') %}
+  {% set learn_more  = _('Learn more') %}
+  {% set get_extension  = _('Get the browser extension') %}
+  {% set get_facebook_container  = _('Get the Facebook Container extension') %}
+  {% set get_browser = _('Download the browser') %}
+  {% set get_app = _('Download the app') %}
+  {% set get_desktop = _('Desktop') %}
+  {% set get_android = 'Android' %}
+  {% set get_ios = 'iOS' %}
+  {% set get_mac = 'Mac' %}
+  {% set get_amazon = 'Amazon' %}
+  {% set product_browsers = _('Browsers') %}
+  {% set product_monitor = 'Monitor' %}
+  {% set product_send = 'Send' %}
+  {% set product_lockwise = 'Lockwise' %}
+  {% set product_pocket = 'Pocket' %}
+{% endif %}
+
+{% block content %}
+<main role="main">
+
+    {% call hero(
+      title=page_title,
+      class='mzp-has-image',
+      heading_level=1,
+      image_url='firefox/home/master/img_hero.png',
+      include_highres_image=true
+    ) %}
+    {% endcall %}
+
+
+    <div class="mzp-l-content">
+      <h2>{{ family_title }}</h2>
+      <ul>
+        <li><a class="mzp-c-cta-link" href="#TKTK" data-cta-type="link" data-cta-text="Browsers">{{ product_browsers }}</a></li>
+        <li><a class="mzp-c-cta-link" href="https://monitor.firefox.com{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Monitor">{{ product_monitor }}</a></li>
+        <li><a class="mzp-c-cta-link" href="https://send.firefox.com/{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Send">{{ product_send }}</a></li>
+        <li><a class="mzp-c-cta-link" href="https://lockwise.firefox.com/{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Lockwise">{{ product_lockwise }}</a></li>
+        <li><a class="mzp-c-cta-link" href="https://getpocket.com{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Pocket">{{ product_pocket }}</a></li>
+      </ul>
+    </div>
+
+
+    <div class="mzp-l-content">
+      {% call feature_card(
+        title=browsers_trackers,
+        heading_level=3,
+        image_url='firefox/home/master/browser.png',
+        aspect_ratio='mzp-has-aspect-3-2',
+        include_highres_image=true,
+        class='mzp-has-aspect-3-2 mzp-l-card-feature-left-half t-browsers',
+        ga_title='Trackers'
+      ) %}
+        {{ get_browser }}
+        <ul>
+          <li><a class="mzp-c-cta-link" href="{{ url('firefox.download.thanks') }}">{{ get_desktop }}</a></li>
+          <li><a class="mzp-c-cta-link" href="{{ settings.GOOGLE_PLAY_FIREFOX_LINK_UTMS }}" rel="external noopener" data-cta-type="link" data-cta-text="Download for Android"> {{ get_android }}</li>
+          <li><a class="mzp-c-cta-link" href="{{ firefox_ios_url('mozorg-firefox-home') }}" rel="external noopener" data-cta-type="link" data-cta-text="Download for iOS">{{ get_ios }}</a></li><li>
+        </ul>
+        {{ get_extension }}
+      {% endcall %}
+    </div>
+
+    <div class="mzp-l-content">
+        {% call feature_card(
+          title=monitor_title,
+          heading_level=3,
+          image_url='firefox/home/master/monitor.svg',
+          aspect_ratio='mzp-has-aspect-3-2',
+          class='mzp-has-aspect-3-2 mzp-l-card-feature-right-half t-monitor',
+          link_url='https://monitor.firefox.com/' + referrals,
+          link_cta=monitor_cta,
+          ga_title='Monitor'
+        ) %}
+        {% endcall %}
+    </div>
+
+    <div class="mzp-l-content">
+      {% call feature_card(
+        title=lockwise_title,
+        heading_level=3,
+        image_url='firefox/home/master/lockwise.svg',
+        aspect_ratio='mzp-has-aspect-3-2',
+        class='mzp-has-aspect-3-2 mzp-l-card-feature-left-half t-lockwise',
+        ga_title='Lockwise'
+      ) %}
+        {{ get_app }}
+        <ul>
+          <li>{{ get_android }}</li>
+          <li>{{ get_ios }}</li>
+        </ul>
+      {% endcall %}
+    </div>
+
+    <div class="mzp-l-content">
+        {% call feature_card(
+          title=promise_title,
+          heading_level=3,
+          image_url='firefox/home/master/respect.png',
+          aspect_ratio='mzp-has-aspect-1-1',
+          include_highres_image=true,
+          class='mzp-has-aspect-3-2 mzp-l-card-feature-right-half mzp-t-dark t-promise',
+          link_url='TKTK' + referrals,
+          link_cta=learn_more,
+          ga_title='Promise'
+        ) %}
+          {{ promise_desc }}
+        {% endcall %}
+    </div>
+
+    <div class="mzp-l-content">
+        {% call feature_card(
+          title=send_title,
+          heading_level=3,
+          image_url='firefox/home/master/send.svg',
+          aspect_ratio='mzp-has-aspect-3-2',
+          class='mzp-has-aspect-3-2 mzp-l-card-feature-right-half t-send',
+          link_url='https://send.firefox.com/' + referrals,
+          link_cta=send_cta,
+          ga_title='Monitor'
+        ) %}
+        {% endcall %}
+    </div>
+
+    <div class="mzp-l-content">
+        {% call feature_card(
+        title=pocket_title,
+        heading_level=3,
+        image_url='firefox/home/master/pocket.png',
+        include_highres_image=true,
+        aspect_ratio='mzp-has-aspect-3-2',
+        class='mzp-has-aspect-3-2 mzp-l-card-feature-left-half t-pocket',
+        ga_title='Pocket'
+      ) %}
+        <p>{{ get_app }}</p>
+        <p>https://getpocket.com{{ pocket_cta }}</p>
+      {% endcall %}
+    </div>
+
+    <div class="mzp-l-content">
+      <h2>{{ footer_title }}</h2>
+      {{ join_firefox }}
+      {{ join_learn_more }}
+    </div>
+
+</main>
+{% endblock %}
+
+{% block js %}
+  {{ js_bundle('firefox-master') }}
+{% endblock %}
