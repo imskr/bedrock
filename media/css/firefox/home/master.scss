@@ -10,4 +10,162 @@ $image-path: '/media/protocol/img';
 @import '../../../protocol/css/components/call-out';
 @import '../../../protocol/css/components/feature-card';
 @import '../../../protocol/css/components/hero';
+@import '../../../protocol/css/components/menu-list';
 
+// ------------------------------------------------------------------------------
+// showcase
+
+.c-showcase {
+    margin-bottom: ($layout-lg * -1 + $layout-md); // offset the magin on the individual icons, set desired margin
+    text-align: center;
+}
+
+.c-showcase-title {
+    @include text-display-sm;
+    margin-bottom: $spacing-lg;
+}
+
+.c-showcase-list {
+    @include flexbox;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+        margin: 0 $layout-sm $layout-lg;
+    }
+
+    .mzp-c-cta-link {
+        display: block;
+    }
+}
+
+// ------------------------------------------------------------------------------
+// component over rides
+
+.mzp-c-menu-list {
+    margin-bottom: $spacing-lg;
+}
+
+.mzp-t-cta .mzp-c-menu-list-title.is-summary button {
+    @include transition(border-bottom-color 100ms ease-in-out);
+    border-bottom: 2px solid $color-link;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        border-bottom-color: transparent;
+    }
+}
+
+@media #{$mq-md} {
+    .firefox-home .mzp-l-content {
+        padding-top: $layout-lg;
+        padding-bottom: $layout-lg;
+    }
+}
+
+.firefox-home {
+    .mzp-c-hero-body {
+        @include flexbox;
+        align-items: center;
+        margin-bottom: 0;
+
+        @media #{$mq-xl} {
+            min-height: 470px;
+        }
+    }
+
+    .mzp-c-hero-title {
+        @include text-display-xxl;
+    }
+}
+
+.firefox-home {
+    .mzp-c-card-feature-title {
+        @include text-display-md;
+        margin-bottom: $spacing-xl;
+    }
+
+    .mzp-c-card-feature-media img {
+        width: auto;
+        max-width: $content-xs;
+
+        @media #{$mq-md} {
+            max-width: 100%;
+        }
+    }
+
+    & .mzp-c-card-feature {
+        margin-bottom: 0;
+    }
+}
+
+// ------------------------------------------------------------------------------
+// promise background colour and image
+
+.t-promise {
+
+    .mzp-l-content {
+        background-image: linear-gradient(90deg,  $color-violet-80, $color-violet-90);
+        color: #fff;
+        margin-bottom: $layout-md;
+    }
+
+    .mzp-c-card-feature .mzp-c-card-feature-desc {
+        color: #fff;
+    }
+}
+
+@media #{$mq-md} {
+    .t-promise {
+
+        .mzp-l-content {
+            background-image: url('/media/img/firefox/home/master/respect.png'), linear-gradient(90deg, $color-violet-60, $color-violet-90);
+            background-position: left -30px center, top left;
+            background-repeat: no-repeat;
+            background-size: 50%, auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px 0 transparentize($color-off-black, .24);
+
+            @media #{$mq-high-res} {
+                background-image: url('/media/img/firefox/home/master/respect-high-res.png'), linear-gradient(90deg, $color-violet-60, $color-violet-90);
+            }
+        }
+
+        .mzp-c-card-feature-content {
+            @include flexbox;
+            justify-content: center;
+            min-height: 310px;
+        }
+    }
+}
+
+@media #{$mq-lg} {
+    .t-promise {
+        .mzp-l-content {
+            background-size: 547px auto, auto;
+            background-position: left center, top left;
+        }
+    }
+}
+
+// ------------------------------------------------------------------------------
+// bottom of the page cta
+
+.c-end {
+    background: linear-gradient(90deg, $color-violet-90, $color-off-black);
+    color: #fff;
+    text-align: center;
+
+    .mzp-l-content {
+        max-width: $content-lg;
+        padding-top: $layout-xl;
+        padding-bottom: $layout-xl;
+    }
+}
+
+.c-end-title {
+    @include text-display-md;
+    color: #fff;
+    margin-bottom: $spacing-2xl;
+}
