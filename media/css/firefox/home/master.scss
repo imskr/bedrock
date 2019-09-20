@@ -167,6 +167,25 @@ $image-path: '/media/protocol/img';
         }
     }
 
+    .mzp-c-card-feature-title {
+        strong {
+            position: relative;
+
+            &:after {
+                content: '';
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                display: block;
+                position: absolute;
+                top: calc(100% - 3px);
+                left: -2px;
+                height: 0.3em;
+                width: calc(100% + 4px);
+                background-image: url('/media/img/firefox/home/master/zap-respect.svg');
+            }
+        }
+    }
+
     .mzp-c-card-feature-media-wrapper {
         display: none;
     }
