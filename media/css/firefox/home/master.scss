@@ -12,6 +12,18 @@ $image-path: '/media/protocol/img';
 @import '../../../protocol/css/components/hero';
 @import '../../../protocol/css/components/menu-list';
 
+
+.firefox-home .mzp-c-cta-link,
+.firefox-home .mzp-t-dark .mzp-c-cta-link {
+    border-bottom: 0;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
 // ------------------------------------------------------------------------------
 // showcase
 
@@ -32,6 +44,14 @@ $image-path: '/media/protocol/img';
 
     li {
         margin: 0 $layout-sm $layout-lg;
+
+        .t-small & {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            overflow: hidden;
+            margin: 0 $spacing-md $layout-lg;
+        }
     }
 
     .mzp-c-cta-link {
@@ -44,17 +64,6 @@ $image-path: '/media/protocol/img';
 
 .mzp-c-menu-list {
     margin-bottom: $spacing-lg;
-}
-
-.mzp-t-cta .mzp-c-menu-list-title.is-summary button {
-    @include transition(border-bottom-color 100ms ease-in-out);
-    border-bottom: 2px solid $color-link;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-        border-bottom-color: transparent;
-    }
 }
 
 @media #{$mq-md} {
@@ -97,6 +106,36 @@ $image-path: '/media/protocol/img';
 
     & .mzp-c-card-feature {
         margin-bottom: 0;
+    }
+}
+
+.mzp-c-card-feature-title {
+   background-repeat: no-repeat;
+   padding-top: $layout-lg;
+   background-size: auto 40px;
+
+   .t-browsers & {
+        @include at2x('/media/img/logos/firefox/logo-quantum-full-wordmark.png', auto, 40px);
+   }
+
+   .t-monitor & {
+        background-image: url('/media/img/logos/monitor/logo-word-hor.svg');
+   }
+
+   .t-send & {
+        background-image: url('/media/img/logos/send/logo-word-hor.svg');
+   }
+
+   .t-lockwise & {
+        background-image: url('/media/img/logos/lockwise/logo-word-hor.svg');
+    }
+
+    .t-pocket & {
+        background-image: url('/media/img/logos/pocket/pocket-wordmark.svg');
+    }
+
+    .t-promise & {
+       padding-top: 0;
     }
 }
 
