@@ -1,0 +1,63 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+$font-path: '/media/fonts';
+$image-path: '/media/protocol/img';
+
+@import '../../../protocol/css/includes/lib';
+
+
+.privacy-promise-hero.mzp-c-hero.mzp-t-dark {
+    background-color: $color-off-black;
+    overflow: hidden;
+
+    .privacy-promise-hero-desc {
+        @include text-body-lg;
+    }
+
+    .mzp-c-hero-image {
+        margin: 0 auto -100px;
+        max-width: 500px;
+    }
+
+    @media #{$mq-lg} {
+        .mzp-c-hero-image {
+            height: 110%;
+            margin: 0;
+            max-width: none;
+
+            img {
+                @include bidi(((left, $spacing-xl, right, auto),));
+            }
+        }
+    }
+}
+
+.call-out-data-promise {
+    background: $color-white;
+
+    .mzp-c-call-out-title {
+        @include text-display-sm;
+    }
+}
+
+.privacy-promise-item {
+    .mzp-c-card-feature-title {
+        color: $color-violet-70;
+    }
+
+    .privacy-promise-sub-title {
+        @include text-display-xs;
+    }
+}
+
+.privacy-promise-learn-more {
+    background-color: $color-gray-10;
+
+    .mzp-c-card-picto-content {
+        max-width: 500px;
+    }
+}
+
+

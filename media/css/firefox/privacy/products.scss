@@ -1,0 +1,175 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+$font-path: '/media/fonts';
+$image-path: '/media/protocol/img';
+
+@import '../../../protocol/css/includes/lib';
+@import '../../../protocol/css/components/emphasis-box';
+@import '../../protocol/components/fxa-form';
+
+.t-medium .mzp-l-content {
+    max-width: $content-xl;
+}
+
+.privacy-products-call-out-main {
+    background-color: $color-white;
+
+    .mzp-c-call-out-title {
+        @include text-display-lg;
+        margin: $spacing-md 0;
+    }
+}
+
+.privacy-products-hero {
+    .mzp-c-hero-title {
+        @include image-replaced;
+        @include at2x('/media/img/logos/firefox/logo-quantum-full-wordmark-white.png', auto, 40px);
+        background-position: top center;
+        background-repeat: no-repeat;
+        margin-bottom: $spacing-md;
+        min-height: 40px;
+    }
+
+    .privacy-products-hero-sub-title {
+        @include text-display-md;
+    }
+
+    .mzp-c-hero-image img {
+        top: 0;
+        bottom: auto;
+    }
+
+    @media #{$mq-md} {
+        .mzp-c-hero-title {
+            @include bidi(((background-position, top left, top right),));
+        }
+
+        .mzp-c-hero-image img {
+            top: 70px;
+        }
+    }
+
+    @media #{$mq-lg} {
+        .mzp-c-hero-image img {
+            top: 100px;
+        }
+    }
+}
+
+.privacy-products-hero.mzp-c-hero.mzp-t-dark,
+.privacy-products-etp {
+    background-color: $color-off-black;
+}
+
+.privacy-products-tracker-counter.mzp-t-dark {
+    background-color: $color-violet-70;
+}
+
+.privacy-products-list {
+    margin: $layout-md auto;
+
+    .mzp-c-card-feature {
+        margin-bottom: $layout-lg;
+
+        &.has-logo {
+            .mzp-c-card-feature-title {
+                @include image-replaced;
+                background-position: top left;
+                background-repeat: no-repeat;
+                margin-bottom: $spacing-lg;
+                min-height: 40px;
+            }
+        }
+    }
+
+    .mzp-c-card-feature:last-child {
+        margin-bottom: 0;
+    }
+
+    .mzp-c-card-feature-media img {
+        max-width: 320px;
+    }
+
+    @media #{$mq-lg} {
+        margin: $layout-xl auto;
+
+        .mzp-c-card-feature-media img {
+            max-width: 410px;
+        }
+    }
+}
+
+.privacy-products-monitor .mzp-c-card-feature-title {
+    @include at2x('/media/protocol/img/logos/firefox/monitor/logo-word-hor-sm.png', auto, 40px);
+}
+
+.privacy-products-lockwise .mzp-c-card-feature-title {
+    @include at2x('/media/protocol/img/logos/firefox/lockwise/logo-word-hor-md.png', auto, 40px);
+}
+
+.privacy-products-send .mzp-c-card-feature-title {
+    @include at2x('/media/protocol/img/logos/firefox/send/logo-word-hor-md.png', auto, 40px);
+}
+
+.privacy-products-pocket .mzp-c-card-feature-title {
+    background-image: url('/media/protocol/img/logos/pocket/logo-word-horz.svg');
+}
+
+.call-out-privacy {
+    background-color: $color-gray-10;
+}
+
+
+/* -------------------------------------------------------------------------- */
+// Conditional CTAs
+
+.is-js-dependent {
+    display: none;
+}
+
+.state-firefox-desktop-70 {
+
+    .show-firefox-desktop-70 {
+        display: block;
+    }
+
+    .show-default {
+        display: none;
+    }
+}
+
+.state-firefox-desktop-old {
+
+    .show-firefox-desktop-old {
+        display: block;
+    }
+
+    .show-default {
+        display: none;
+
+        &.show-firefox-desktop-old {
+            display: block;
+        }
+    }
+}
+
+.android,
+.ios {
+    .show-mobile {
+        display: block;
+    }
+
+    .show-default {
+        display: none;
+    }
+}
+
+.android .show-android {
+    display: block;
+}
+
+.ios .show-ios {
+    display: block;
+}
