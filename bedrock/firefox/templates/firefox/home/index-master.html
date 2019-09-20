@@ -13,8 +13,13 @@
 {% else %}
   {% set title_suffix = 'Firefox' %}
 {% endif %}
-{% block page_title %}TKTK{% endblock %}
+{% block page_title %}{{ _('The browser is just the beginning') }}{% endblock %}
 {% block page_desc %}TKTK{% endblock %}
+{% block page_image %}{{ static('img/firefox/template/page-image-master.jpg') }}{% endblock %}
+{% block page_favicon %}{{ static('img/logos/master/favicon-64.png') }}{% endblock %}
+{% block page_favicon_large %}{{ static('img/logos/master/favicon-196.png') }}{% endblock %}
+{% block page_ios_icon %}{{ static('img/logos/master/favicon-180.png') }}{% endblock %}
+
 
 {% block page_css %}
   {{ css_bundle('firefox-master') }}
