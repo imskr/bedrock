@@ -13,6 +13,7 @@ $image-path: '/media/protocol/img';
 @import '../../../protocol/css/components/menu-list';
 
 
+// https://github.com/mozilla/protocol/issues/490
 .firefox-home .mzp-c-cta-link,
 .firefox-home .mzp-t-dark .mzp-c-cta-link {
     border-bottom: 0;
@@ -25,55 +26,16 @@ $image-path: '/media/protocol/img';
 }
 
 // ------------------------------------------------------------------------------
-// showcase
-
-.c-showcase {
-    margin-bottom: ($layout-lg * -1 + $layout-md); // offset the magin on the individual icons, set desired margin
-    text-align: center;
-}
-
-.c-showcase-title {
-    @include text-display-sm;
-    margin-bottom: $spacing-lg;
-}
-
-.c-showcase-list {
-    @include flexbox;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-        margin: 0 $layout-sm $layout-lg;
-
-        .t-small & {
-            display: inline-block;
-            height: 40px;
-            width: 40px;
-            overflow: hidden;
-            margin: 0 $spacing-md $layout-lg;
-        }
-    }
-
-    .mzp-c-cta-link {
-        display: block;
-    }
-}
-
-// ------------------------------------------------------------------------------
-// component over rides
-
-.mzp-c-menu-list {
-    margin-bottom: $spacing-lg;
-}
-
-@media #{$mq-md} {
-    .firefox-home .mzp-l-content {
-        padding-top: $layout-lg;
-        padding-bottom: $layout-lg;
-    }
-}
+// component over rides (menu list, hero, feature card, and content)
 
 .firefox-home {
+
+    // menu list
+    .mzp-c-menu-list {
+        margin-bottom: $spacing-lg;
+    }
+
+    // hero
     .mzp-c-hero-body {
         @include flexbox;
         align-items: center;
@@ -87,47 +49,59 @@ $image-path: '/media/protocol/img';
     .mzp-c-hero-title {
         @include text-display-xxl;
     }
-}
 
-.firefox-home {
-    .mzp-c-card-feature-title {
-        @include text-display-md;
-        margin-bottom: $spacing-xl;
+    // feature cards
+    .mzp-c-card-feature {
+        margin-bottom: $layout-md;
+        max-width: $content-sm;
     }
 
     .mzp-c-card-feature-media img {
-        width: auto;
         max-width: $content-xs;
-
-        @media #{$mq-md} {
-            max-width: 100%;
-        }
     }
 
-    & .mzp-c-card-feature {
-        margin-bottom: 0;
+    @media #{$mq-md} {
+
+        // feature cards
+        .mzp-c-card-feature {
+            margin-bottom: 0;
+            max-width: 100%;
+        }
+
+        .mzp-c-card-feature-media img {
+            max-width: 100%;
+            width: auto;
+        }
+
+        // content
+        .mzp-l-content {
+            padding-top: $layout-lg;
+            padding-bottom: $layout-lg;
+        }
     }
 }
 
 .mzp-c-card-feature-title {
-   background-repeat: no-repeat;
-   padding-top: $layout-lg;
-   background-size: auto 40px;
+    @include text-display-md;
+    background-repeat: no-repeat;
+    background-size: auto 40px;
+    margin-bottom: $spacing-xl;
+    padding-top: $layout-lg;
 
-   .t-browsers & {
-        @include at2x('/media/img/logos/firefox/logo-quantum-full-wordmark.png', auto, 40px);
-   }
+    .t-browsers & {
+            @include at2x('/media/img/logos/firefox/logo-quantum-full-wordmark.png', auto, 40px);
+    }
 
-   .t-monitor & {
-        background-image: url('/media/img/logos/monitor/logo-word-hor.svg');
-   }
+    .t-monitor & {
+            background-image: url('/media/img/logos/monitor/logo-word-hor.svg');
+    }
 
-   .t-send & {
-        background-image: url('/media/img/logos/send/logo-word-hor.svg');
-   }
+    .t-send & {
+            background-image: url('/media/img/logos/send/logo-word-hor.svg');
+    }
 
-   .t-lockwise & {
-        background-image: url('/media/img/logos/lockwise/logo-word-hor.svg');
+    .t-lockwise & {
+            background-image: url('/media/img/logos/lockwise/logo-word-hor.svg');
     }
 
     .t-pocket & {
@@ -135,9 +109,42 @@ $image-path: '/media/protocol/img';
     }
 
     .t-promise & {
-       padding-top: 0;
+        padding-top: 0;
     }
 }
+
+// ------------------------------------------------------------------------------
+// showcase
+
+.c-showcase {
+    text-align: center;
+    margin-bottom: $layout-md;
+}
+
+.c-showcase-title {
+    @include text-display-sm;
+    margin-bottom: $spacing-lg;
+}
+
+.c-showcase-list {
+    @include flexbox;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: ($layout-lg * -1); // offset the magin on the individual icons
+
+    li {
+        margin: 0 $layout-sm $layout-lg;
+
+        .t-small & {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            overflow: hidden;
+            margin: 0 $spacing-md $layout-lg;
+        }
+    }
+}
+
 
 // ------------------------------------------------------------------------------
 // promise background colour and image
@@ -146,25 +153,34 @@ $image-path: '/media/protocol/img';
 
     .mzp-l-content {
         background-image: linear-gradient(90deg,  $color-violet-80, $color-violet-90);
+        border-radius: 8px;
         color: #fff;
-        margin-bottom: $layout-md;
+        margin: 0 auto $layout-md;
+        max-width: $content-sm;
     }
 
-    .mzp-c-card-feature .mzp-c-card-feature-desc {
-        color: #fff;
-    }
-}
+    .mzp-c-card-feature {
+        margin-bottom: 0;
 
-@media #{$mq-md} {
-    .t-promise {
+        .mzp-c-card-feature-desc {
+            color: #fff;
+        }
+    }
+
+    .mzp-c-card-feature-media-wrapper {
+        display: none;
+    }
+
+    @media #{$mq-md} {
+        margin: $layout-lg 0;
 
         .mzp-l-content {
             background-image: url('/media/img/firefox/home/master/respect.png'), linear-gradient(90deg, $color-violet-60, $color-violet-90);
             background-position: left -30px center, top left;
             background-repeat: no-repeat;
             background-size: 50%, auto;
-            border-radius: 8px;
             box-shadow: 0 4px 16px 0 transparentize($color-off-black, .24);
+            max-width: $content-max;
 
             @media #{$mq-high-res} {
                 background-image: url('/media/img/firefox/home/master/respect-high-res.png'), linear-gradient(90deg, $color-violet-60, $color-violet-90);
@@ -177,13 +193,11 @@ $image-path: '/media/protocol/img';
             min-height: 310px;
         }
     }
-}
 
-@media #{$mq-lg} {
-    .t-promise {
+    @media #{$mq-lg} {
         .mzp-l-content {
-            background-size: 547px auto, auto;
             background-position: left center, top left;
+            background-size: 547px auto, auto;
         }
     }
 }
@@ -198,8 +212,8 @@ $image-path: '/media/protocol/img';
 
     .mzp-l-content {
         max-width: $content-lg;
-        padding-top: $layout-xl;
         padding-bottom: $layout-xl;
+        padding-top: $layout-xl;
     }
 }
 
@@ -207,4 +221,11 @@ $image-path: '/media/protocol/img';
     @include text-display-md;
     color: #fff;
     margin-bottom: $spacing-2xl;
+    margin-top: $layout-md;
+}
+
+@media #{$mq-md} {
+    .c-end {
+        margin-top: $layout-lg;
+    }
 }
