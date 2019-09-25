@@ -80,13 +80,13 @@
         <h2 class="c-showcase-title">{{ family_title }}</h2>
         <ul class="c-showcase-list">
           <li>
-            <a class="mzp-c-cta-link" href="#TKTK" data-cta-type="link" data-cta-text="Browsers">
-                <img alt="" src="{{ static('img/logos/firefox/logo-quantum.png') }}" height="40" width="40"><br>
+            <a class="mzp-c-cta-link" href="{{ url('firefox.new') }}" data-cta-type="link" data-cta-text="Browsers">
+              <img alt="" src="{{ static('img/logos/firefox/logo-quantum.png') }}" height="40" width="40"><br>
               {{ product_browsers }}
             </a>
           </li>
           <li>
-            <a class="mzp-c-cta-link" href="https://monitor.firefox.com{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Monitor">
+            <a class="mzp-c-cta-link" href="https://monitor.firefox.com{{ referrals }}" rel="external noopener" data-cta-type="link" data-cta-text="Monitor">
               <img alt="" src="{{ static('img/logos/firefox/logo-monitor.svg') }}" height="40" width="40"><br>
               {{ product_monitor }}
             </a>
@@ -98,13 +98,13 @@
             </a>
           </li>
           <li>
-              <a class="mzp-c-cta-link" href="https://lockwise.firefox.com/{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Lockwise">
+              <a class="mzp-c-cta-link" href="https://lockwise.firefox.com/{{ referrals }}" rel="external noopener" data-cta-type="link" data-cta-text="Lockwise">
                 <img alt="" src="{{ static('img/logos/firefox/logo-lockwise.svg') }}" height="40" width="40"><br>
                 {{ product_lockwise }}
               </a>
             </li>
           <li>
-            <a class="mzp-c-cta-link" href="https://getpocket.com{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Pocket">
+            <a class="mzp-c-cta-link" href="https://getpocket.com{{ referrals }}" rel="external noopener" data-cta-type="link" data-cta-text="Pocket">
               <img alt="" src="{{ static('img/logos/pocket/logo.svg') }}" height="40" width="40"><br>
               {{ product_pocket }}
             </a>
@@ -120,7 +120,8 @@
         image_url='firefox/home/master/browser.png',
         include_highres_image=true,
         class='mzp-l-card-feature-left-half t-browsers',
-        ga_title='Trackers'
+        ga_title='Trackers',
+        media_after=true
       ) %}
 
         <div class="mzp-c-menu-list mzp-t-cta mzp-t-download">
@@ -144,7 +145,8 @@
           class='mzp-l-card-feature-right-half t-monitor',
           link_url='https://monitor.firefox.com/' + referrals,
           link_cta=monitor_cta,
-          ga_title='Monitor'
+          ga_title='Monitor',
+          media_after=true
         ) %}
         {% endcall %}
     </div>
@@ -155,7 +157,8 @@
         heading_level=3,
         image_url='firefox/home/master/lockwise.svg',
         class='mzp-l-card-feature-left-half t-lockwise',
-        ga_title='Lockwise'
+        ga_title='Lockwise',
+        media_after=true
       ) %}
         <div class="mzp-c-menu-list mzp-t-cta mzp-t-download">
           <h4 class="mzp-c-menu-list-title">{{ get_app }}</h4>
@@ -164,7 +167,7 @@
             <li class="mzp-c-menu-list-item"><a href="{{ lockwise_adjust_url('ios', 'firefox-home') }}" rel="external noopener" data-cta-type="link" data-cta-text="Download Lockwise for iOS">{{ get_ios }}</a></li>
           </ul>
         </div>
-        <p><a class="mzp-c-cta-link" href="https://github.com/mozilla-lockwise/lockwise-addon/releases/download/2.2.5-alpha/lockwise-signed.xpi">{{ get_extension }}</a></p>
+        <p><a class="mzp-c-cta-link" href="https://lockwise.firefox.com/{{ referrals }}">{{ get_extension }}</a></p>
       {% endcall %}
     </div>
 
@@ -177,7 +180,8 @@
             class='mzp-l-card-feature-right-half',
             link_url=url('privacy.notices.firefox'),
             link_cta=learn_more,
-            ga_title='Promise'
+            ga_title='Promise',
+            media_after=true
           ) %}
             <p>{{ promise_desc }}</p>
           {% endcall %}
@@ -192,7 +196,8 @@
           class='mzp-l-card-feature-right-half t-send',
           link_url='https://send.firefox.com/' + referrals,
           link_cta=send_cta,
-          ga_title='Monitor'
+          ga_title='Monitor',
+          media_after=true
         ) %}
         {% endcall %}
     </div>
@@ -204,7 +209,8 @@
         image_url='firefox/home/master/pocket.png',
         include_highres_image=true,
         class='mzp-l-card-feature-left-half t-pocket',
-        ga_title='Pocket'
+        ga_title='Pocket',
+        media_after=true
       ) %}
         <div class="mzp-c-menu-list mzp-t-cta mzp-t-download">
           <h4 class="mzp-c-menu-list-title">{{ get_app }}</h4>
@@ -222,13 +228,13 @@
         <div class="c-showcase t-small">
             <ul class="c-showcase-list">
               <li>
-                <a class="mzp-c-cta-link" href="#TKTK" data-cta-type="link" data-cta-text="Browsers">
+                <a class="mzp-c-cta-link" href="{{ url('firefox.new') }}" data-cta-type="link" data-cta-text="Browsers">
                   <img alt="" src="{{ static('img/logos/firefox/logo-quantum.png') }}" height="40" width="40"><br>
                   {{ product_browsers }}
                 </a>
               </li>
               <li>
-                <a class="mzp-c-cta-link" href="https://monitor.firefox.com{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Monitor">
+                <a class="mzp-c-cta-link" href="https://monitor.firefox.com{{ referrals }}" rel="external noopener" data-cta-type="link" data-cta-text="Monitor">
                   <img alt="" src="{{ static('img/logos/firefox/logo-monitor.svg') }}" height="40" width="40"><br>
                   {{ product_monitor }}
                 </a>
@@ -240,13 +246,13 @@
                 </a>
               </li>
               <li>
-                <a class="mzp-c-cta-link" href="https://lockwise.firefox.com/{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Lockwise">
+                <a class="mzp-c-cta-link" href="https://lockwise.firefox.com/{{ referrals }}" rel="external noopener" data-cta-type="link" data-cta-text="Lockwise">
                   <img alt="" src="{{ static('img/logos/firefox/logo-lockwise.svg') }}" height="40" width="40"><br>
                   {{ product_lockwise }}
                 </a>
               </li>
               <li>
-                <a class="mzp-c-cta-link" href="https://getpocket.com{{ referrals}}" rel="external noopener" data-cta-type="link" data-cta-text="Pocket">
+                <a class="mzp-c-cta-link" href="https://getpocket.com{{ referrals }}" rel="external noopener" data-cta-type="link" data-cta-text="Pocket">
                   <img alt="" src="{{ static('img/logos/pocket/logo.svg') }}" height="40" width="40"><br>
                   {{ product_pocket }}
                 </a>
