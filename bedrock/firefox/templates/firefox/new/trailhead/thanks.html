@@ -21,7 +21,9 @@
 {% endblock %}
 
 {% block site_header %}
-  {% include 'includes/protocol/navigation/menu-firefox/nav-switch.html' %}
+  {% with hide_nav_get_account_button=True %}
+    {% include 'includes/protocol/navigation/menu-firefox/nav-switch.html' %}
+  {% endwith %}
 {% endblock %}
 
 {% block content %}
