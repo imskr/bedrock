@@ -50,8 +50,9 @@ $image-path: '/media/protocol/img';
     }
 
     // hero
-    .mzp-c-hero{
+    .mzp-c-hero {
         padding-bottom: 0;
+        padding-top: 0;
     }
 
     .mzp-c-hero-image {
@@ -62,14 +63,11 @@ $image-path: '/media/protocol/img';
         @include flexbox;
         align-items: center;
         margin-bottom: 0;
-
-        @media #{$mq-xl} {
-            min-height: 470px;
-        }
     }
 
     .mzp-c-hero-title {
         @include text-display-xxl;
+        margin-bottom: 0;
     }
 
     // feature cards
@@ -99,8 +97,16 @@ $image-path: '/media/protocol/img';
         }
 
         // hero
+
         .mzp-c-hero-image {
             display: block;
+            height: 100%;
+            top: 0;
+            bottom: $layout-sm * -1;
+        }
+
+        .mzp-c-hero-body {
+            padding: $layout-md 0;
         }
 
         // feature cards
@@ -197,6 +203,7 @@ $image-path: '/media/protocol/img';
 // promise background colour and image
 
 .t-promise {
+    padding: 0 $layout-sm;
 
     .mzp-l-content {
         background-image: linear-gradient(90deg,  $color-violet-80, $color-violet-90);
@@ -204,6 +211,8 @@ $image-path: '/media/protocol/img';
         color: #fff;
         margin: $layout-md auto;
         max-width: $content-sm;
+        min-width: 0;
+        box-shadow: 0 4px 16px 0 transparentize($color-off-black, .24);
     }
 
     .mzp-c-card-feature {
@@ -239,13 +248,13 @@ $image-path: '/media/protocol/img';
 
     @media #{$mq-md} {
         margin: $layout-lg 0;
+        padding: 0 $layout-md;
 
         .mzp-l-content {
             background-image: url('/media/img/firefox/home/master/respect.png'), linear-gradient(90deg, $color-violet-60, $color-violet-90);
             background-position: left -30px center, top left;
             background-repeat: no-repeat;
             background-size: 50%, auto;
-            box-shadow: 0 4px 16px 0 transparentize($color-off-black, .24);
             max-width: $content-max;
 
             @media #{$mq-high-res} {
@@ -261,6 +270,8 @@ $image-path: '/media/protocol/img';
     }
 
     @media #{$mq-lg} {
+        padding: 0 $layout-lg;
+
         .mzp-l-content {
             background-position: left center, top left;
             background-size: 547px auto, auto;
