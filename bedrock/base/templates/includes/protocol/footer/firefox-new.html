@@ -2,6 +2,8 @@
  # License, v. 2.0. If a copy of the MPL was not distributed with this
  # file, You can obtain one at http://mozilla.org/MPL/2.0/. -#}
 
+{% from "macros.html" import fxa_link_fragment with context %}
+
 <footer class="mzp-c-footer mzp-t-firefox" id="colophon">
   <div class="mzp-l-content">
     <nav class="mzp-c-footer-primary">
@@ -13,7 +15,7 @@
           <ul class="mzp-c-footer-list">
             <li><a href="{{ url('privacy.notices.firefox') }}" data-link-type="footer" data-link-name="Privacy">{{ _('Privacy') }}</a></li>
             <li><a href="{{ press_blog_url() }}" data-link-type="footer" data-link-name="Press">{{ _('Press') }}</a>
-            <li><a href="https://mozilla.design/?utm_source=www.mozilla.org&utm_medium=referral&utm_campaign=footer&utm_content=design" data-link-type="footer" data-link-name="Design Site">{{ _('Design Site') }}</a>
+            <li><a href="https://mozilla.design/?utm_source=www.mozilla.org&utm_medium=referral&utm_campaign=footer&utm_content=design" data-link-type="footer" data-link-name="Design Site">{{ _('Brand Standards') }}</a>
           </ul>
         </section>
         <section class="mzp-c-footer-section">
@@ -44,8 +46,8 @@
             {{ _('Join') }}
           </h5>
           <ul class="mzp-c-footer-list">
-            <li><a href="https://accounts.firefox.com/signup?utm_source=www.mozilla.org&utm_medium=referral&utm_campaign=footer&utm_content=signup" data-link-type="footer" data-link-name="Sign Up">{{ _('Sign Up') }}</a></li>
-            <li><a href="https://accounts.firefox.com/signin?utm_source=www.mozilla.org&utm_medium=referral&utm_campaign=footer&utm_content=signup" data-link-type="footer" data-link-name="Sign In">{{ _('Sign In') }}</a></li>
+            <li><a {{ fxa_link_fragment(entrypoint='mozilla.org-firefoxfooter', action='signin', utm_campaign='footer', utm_content='join-sign-in') }} class="js-fxa-cta-link" rel="external noopener"  data-link-type="footer" data-link-name="Sign Up">{{ _('Sign Up') }}</a></li>
+            <li><a {{ fxa_link_fragment(entrypoint='mozilla.org-firefoxfooter', action='signin', utm_campaign='footer', utm_content='join-sign-in') }} class="js-fxa-cta-link" rel="external noopener"  data-link-type="footer" data-link-name="Sign In">{{ _('Sign In') }}</a></li>
             <li><a href="{{ url('firefox.accounts') }}" data-link-type="footer" data-link-name="Benefits">{{ _('Benefits') }}</a></li>
           </ul>
         </section>
@@ -54,11 +56,13 @@
             {{ _('Developers') }}
           </h5>
           <ul class="mzp-c-footer-list">
-            <li><a href="{{ url('firefox.developer.index') }}" data-link-type="footer" data-link-name="Benefits">{{ _('Dev. Edition') }}</a></li>
-            <li><a href="{{ url('firefox.channel.desktop') + '#beta' }}" data-link-type="footer" data-link-name="Benefits">{{ _('Beta') }}</a></li>
-            <li><a href="{{ url('firefox.channel.android') + '#beta' }}" data-link-type="footer" data-link-name="Benefits">{{ _('Beta for Android') }}</a></li>
-            <li><a href="{{ url('firefox.channel.android') + '#nightly' }}" data-link-type="footer" data-link-name="Benefits">{{ _('Nightly') }}</a></li>
-            <li><a href="{{ url('firefox.channel.desktop') + '#nightly' }}" data-link-type="footer" data-link-name="Benefits">{{ _('Nightly for Android') }}</a></li>
+            <li><a href="{{ url('firefox.developer.index') }}" data-link-type="footer" data-link-name="Developer Edition">Developer Edition') }}</a></li>
+            <li><a href="{{ url('firefox.channel.desktop') + '#beta' }}" data-link-type="footer" data-link-name="Beta">Beta</a></li>
+            {# L10n: please do not translate the product name Beta #}
+            <li><a href="{{ url('firefox.channel.android') + '#beta' }}" data-link-type="footer" data-link-name="Beta for Android">{{ _('Beta for Android') }}</a></li>
+            <li><a href="{{ url('firefox.channel.android') + '#nightly' }}" data-link-type="footer" data-link-name="Nightly">Nightly</a></li>
+            {# L10n: please do not translate the product name Nightly #}
+            <li><a href="{{ url('firefox.channel.desktop') + '#nightly' }}" data-link-type="footer" data-link-name="Nightly for Android">{{ _('Nightly for Android') }}</a></li>
           </ul>
         </section>
       </div>
